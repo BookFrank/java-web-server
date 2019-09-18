@@ -52,6 +52,10 @@ public class HttpServer {
                 os.write("<h1>hello!</h1>".getBytes());
                 os.write("<h3>HTTP服务器!</h3>".getBytes("utf-8"));
                 os.close();
+
+                // 从上面一个 HTTP 协议的响应来看，很明显可以看出两个问题：
+                // 1. HTTP 协议是是明文的字符串，是不安全的；
+                // 2. HTTP 协议有太多的无用信息（为了兼容浏览器渲染），因此它是为浏览器通信设计的，服务之间的通信应该采取更加紧凑的方式；
             }
         } catch (IOException e) {
             e.printStackTrace();
